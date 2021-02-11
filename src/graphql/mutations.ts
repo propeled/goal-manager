@@ -2,259 +2,199 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createBlog = /* GraphQL */ `
-  mutation CreateBlog(
-    $input: CreateBlogInput!
-    $condition: ModelBlogConditionInput
+export const createPath = /* GraphQL */ `
+  mutation CreatePath(
+    $input: CreatePathInput!
+    $condition: ModelPathConditionInput
   ) {
-    createBlog(input: $input, condition: $condition) {
+    createPath(input: $input, condition: $condition) {
       id
       name
-      posts {
+      description
+      createdAt
+      updatedAt
+      GoalTemplates {
         items {
           id
-          title
-          blogID
+          name
+          description
+          pathID
           createdAt
           updatedAt
         }
         nextToken
       }
-      createdAt
-      updatedAt
     }
   }
 `;
-export const updateBlog = /* GraphQL */ `
-  mutation UpdateBlog(
-    $input: UpdateBlogInput!
-    $condition: ModelBlogConditionInput
+export const updatePath = /* GraphQL */ `
+  mutation UpdatePath(
+    $input: UpdatePathInput!
+    $condition: ModelPathConditionInput
   ) {
-    updateBlog(input: $input, condition: $condition) {
+    updatePath(input: $input, condition: $condition) {
       id
       name
-      posts {
+      description
+      createdAt
+      updatedAt
+      GoalTemplates {
         items {
           id
-          title
-          blogID
+          name
+          description
+          pathID
           createdAt
           updatedAt
         }
         nextToken
       }
-      createdAt
-      updatedAt
     }
   }
 `;
-export const deleteBlog = /* GraphQL */ `
-  mutation DeleteBlog(
-    $input: DeleteBlogInput!
-    $condition: ModelBlogConditionInput
+export const deletePath = /* GraphQL */ `
+  mutation DeletePath(
+    $input: DeletePathInput!
+    $condition: ModelPathConditionInput
   ) {
-    deleteBlog(input: $input, condition: $condition) {
+    deletePath(input: $input, condition: $condition) {
       id
       name
-      posts {
-        items {
-          id
-          title
-          blogID
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
+      description
       createdAt
       updatedAt
-    }
-  }
-`;
-export const createPost = /* GraphQL */ `
-  mutation CreatePost(
-    $input: CreatePostInput!
-    $condition: ModelPostConditionInput
-  ) {
-    createPost(input: $input, condition: $condition) {
-      id
-      title
-      blogID
-      blog {
-        id
-        name
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      comments {
+      GoalTemplates {
         items {
-          id
-          postID
-          content
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const updatePost = /* GraphQL */ `
-  mutation UpdatePost(
-    $input: UpdatePostInput!
-    $condition: ModelPostConditionInput
-  ) {
-    updatePost(input: $input, condition: $condition) {
-      id
-      title
-      blogID
-      blog {
-        id
-        name
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      comments {
-        items {
-          id
-          postID
-          content
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const deletePost = /* GraphQL */ `
-  mutation DeletePost(
-    $input: DeletePostInput!
-    $condition: ModelPostConditionInput
-  ) {
-    deletePost(input: $input, condition: $condition) {
-      id
-      title
-      blogID
-      blog {
-        id
-        name
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      comments {
-        items {
-          id
-          postID
-          content
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const createComment = /* GraphQL */ `
-  mutation CreateComment(
-    $input: CreateCommentInput!
-    $condition: ModelCommentConditionInput
-  ) {
-    createComment(input: $input, condition: $condition) {
-      id
-      postID
-      post {
-        id
-        title
-        blogID
-        blog {
           id
           name
+          description
+          pathID
           createdAt
           updatedAt
         }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
+        nextToken
       }
-      content
+    }
+  }
+`;
+export const createGoalTemplate = /* GraphQL */ `
+  mutation CreateGoalTemplate(
+    $input: CreateGoalTemplateInput!
+    $condition: ModelGoalTemplateConditionInput
+  ) {
+    createGoalTemplate(input: $input, condition: $condition) {
+      id
+      name
+      description
+      pathID
+      createdAt
+      updatedAt
+      Goals {
+        items {
+          id
+          name
+          description
+          goaltemplateID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+    }
+  }
+`;
+export const updateGoalTemplate = /* GraphQL */ `
+  mutation UpdateGoalTemplate(
+    $input: UpdateGoalTemplateInput!
+    $condition: ModelGoalTemplateConditionInput
+  ) {
+    updateGoalTemplate(input: $input, condition: $condition) {
+      id
+      name
+      description
+      pathID
+      createdAt
+      updatedAt
+      Goals {
+        items {
+          id
+          name
+          description
+          goaltemplateID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+    }
+  }
+`;
+export const deleteGoalTemplate = /* GraphQL */ `
+  mutation DeleteGoalTemplate(
+    $input: DeleteGoalTemplateInput!
+    $condition: ModelGoalTemplateConditionInput
+  ) {
+    deleteGoalTemplate(input: $input, condition: $condition) {
+      id
+      name
+      description
+      pathID
+      createdAt
+      updatedAt
+      Goals {
+        items {
+          id
+          name
+          description
+          goaltemplateID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+    }
+  }
+`;
+export const createGoal = /* GraphQL */ `
+  mutation CreateGoal(
+    $input: CreateGoalInput!
+    $condition: ModelGoalConditionInput
+  ) {
+    createGoal(input: $input, condition: $condition) {
+      id
+      name
+      description
+      goaltemplateID
       createdAt
       updatedAt
     }
   }
 `;
-export const updateComment = /* GraphQL */ `
-  mutation UpdateComment(
-    $input: UpdateCommentInput!
-    $condition: ModelCommentConditionInput
+export const updateGoal = /* GraphQL */ `
+  mutation UpdateGoal(
+    $input: UpdateGoalInput!
+    $condition: ModelGoalConditionInput
   ) {
-    updateComment(input: $input, condition: $condition) {
+    updateGoal(input: $input, condition: $condition) {
       id
-      postID
-      post {
-        id
-        title
-        blogID
-        blog {
-          id
-          name
-          createdAt
-          updatedAt
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      content
+      name
+      description
+      goaltemplateID
       createdAt
       updatedAt
     }
   }
 `;
-export const deleteComment = /* GraphQL */ `
-  mutation DeleteComment(
-    $input: DeleteCommentInput!
-    $condition: ModelCommentConditionInput
+export const deleteGoal = /* GraphQL */ `
+  mutation DeleteGoal(
+    $input: DeleteGoalInput!
+    $condition: ModelGoalConditionInput
   ) {
-    deleteComment(input: $input, condition: $condition) {
+    deleteGoal(input: $input, condition: $condition) {
       id
-      postID
-      post {
-        id
-        title
-        blogID
-        blog {
-          id
-          name
-          createdAt
-          updatedAt
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      content
+      name
+      description
+      goaltemplateID
       createdAt
       updatedAt
     }

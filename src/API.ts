@@ -2,16 +2,18 @@
 /* eslint-disable */
 //  This file was automatically generated and should not be edited.
 
-export type CreateBlogInput = {
+export type CreatePathInput = {
   id?: string | null,
-  name: string,
+  name?: string | null,
+  description?: string | null,
 };
 
-export type ModelBlogConditionInput = {
+export type ModelPathConditionInput = {
   name?: ModelStringInput | null,
-  and?: Array< ModelBlogConditionInput | null > | null,
-  or?: Array< ModelBlogConditionInput | null > | null,
-  not?: ModelBlogConditionInput | null,
+  description?: ModelStringInput | null,
+  and?: Array< ModelPathConditionInput | null > | null,
+  or?: Array< ModelPathConditionInput | null > | null,
+  not?: ModelPathConditionInput | null,
 };
 
 export type ModelStringInput = {
@@ -54,27 +56,30 @@ export type ModelSizeInput = {
   between?: Array< number | null > | null,
 };
 
-export type UpdateBlogInput = {
+export type UpdatePathInput = {
   id: string,
   name?: string | null,
+  description?: string | null,
 };
 
-export type DeleteBlogInput = {
+export type DeletePathInput = {
   id?: string | null,
 };
 
-export type CreatePostInput = {
+export type CreateGoalTemplateInput = {
   id?: string | null,
-  title: string,
-  blogID: string,
+  name?: string | null,
+  description?: string | null,
+  pathID: string,
 };
 
-export type ModelPostConditionInput = {
-  title?: ModelStringInput | null,
-  blogID?: ModelIDInput | null,
-  and?: Array< ModelPostConditionInput | null > | null,
-  or?: Array< ModelPostConditionInput | null > | null,
-  not?: ModelPostConditionInput | null,
+export type ModelGoalTemplateConditionInput = {
+  name?: ModelStringInput | null,
+  description?: ModelStringInput | null,
+  pathID?: ModelIDInput | null,
+  and?: Array< ModelGoalTemplateConditionInput | null > | null,
+  or?: Array< ModelGoalTemplateConditionInput | null > | null,
+  not?: ModelGoalTemplateConditionInput | null,
 };
 
 export type ModelIDInput = {
@@ -93,412 +98,440 @@ export type ModelIDInput = {
   size?: ModelSizeInput | null,
 };
 
-export type UpdatePostInput = {
+export type UpdateGoalTemplateInput = {
   id: string,
-  title?: string | null,
-  blogID?: string | null,
+  name?: string | null,
+  description?: string | null,
+  pathID?: string | null,
 };
 
-export type DeletePostInput = {
+export type DeleteGoalTemplateInput = {
   id?: string | null,
 };
 
-export type CreateCommentInput = {
+export type CreateGoalInput = {
   id?: string | null,
-  postID: string,
-  content: string,
+  name?: string | null,
+  description?: string | null,
+  goaltemplateID: string,
 };
 
-export type ModelCommentConditionInput = {
-  postID?: ModelIDInput | null,
-  content?: ModelStringInput | null,
-  and?: Array< ModelCommentConditionInput | null > | null,
-  or?: Array< ModelCommentConditionInput | null > | null,
-  not?: ModelCommentConditionInput | null,
+export type ModelGoalConditionInput = {
+  name?: ModelStringInput | null,
+  description?: ModelStringInput | null,
+  goaltemplateID?: ModelIDInput | null,
+  and?: Array< ModelGoalConditionInput | null > | null,
+  or?: Array< ModelGoalConditionInput | null > | null,
+  not?: ModelGoalConditionInput | null,
 };
 
-export type UpdateCommentInput = {
+export type UpdateGoalInput = {
   id: string,
-  postID?: string | null,
-  content?: string | null,
+  name?: string | null,
+  description?: string | null,
+  goaltemplateID?: string | null,
 };
 
-export type DeleteCommentInput = {
+export type DeleteGoalInput = {
   id?: string | null,
 };
 
-export type ModelBlogFilterInput = {
+export type ModelPathFilterInput = {
   id?: ModelIDInput | null,
   name?: ModelStringInput | null,
-  and?: Array< ModelBlogFilterInput | null > | null,
-  or?: Array< ModelBlogFilterInput | null > | null,
-  not?: ModelBlogFilterInput | null,
+  description?: ModelStringInput | null,
+  and?: Array< ModelPathFilterInput | null > | null,
+  or?: Array< ModelPathFilterInput | null > | null,
+  not?: ModelPathFilterInput | null,
 };
 
-export type ModelPostFilterInput = {
+export type ModelGoalTemplateFilterInput = {
   id?: ModelIDInput | null,
-  title?: ModelStringInput | null,
-  blogID?: ModelIDInput | null,
-  and?: Array< ModelPostFilterInput | null > | null,
-  or?: Array< ModelPostFilterInput | null > | null,
-  not?: ModelPostFilterInput | null,
+  name?: ModelStringInput | null,
+  description?: ModelStringInput | null,
+  pathID?: ModelIDInput | null,
+  and?: Array< ModelGoalTemplateFilterInput | null > | null,
+  or?: Array< ModelGoalTemplateFilterInput | null > | null,
+  not?: ModelGoalTemplateFilterInput | null,
 };
 
-export type ModelCommentFilterInput = {
+export type ModelGoalFilterInput = {
   id?: ModelIDInput | null,
-  postID?: ModelIDInput | null,
-  content?: ModelStringInput | null,
-  and?: Array< ModelCommentFilterInput | null > | null,
-  or?: Array< ModelCommentFilterInput | null > | null,
-  not?: ModelCommentFilterInput | null,
+  name?: ModelStringInput | null,
+  description?: ModelStringInput | null,
+  goaltemplateID?: ModelIDInput | null,
+  and?: Array< ModelGoalFilterInput | null > | null,
+  or?: Array< ModelGoalFilterInput | null > | null,
+  not?: ModelGoalFilterInput | null,
 };
 
-export type CreateBlogMutationVariables = {
-  input: CreateBlogInput,
-  condition?: ModelBlogConditionInput | null,
+export type CreatePathMutationVariables = {
+  input: CreatePathInput,
+  condition?: ModelPathConditionInput | null,
 };
 
-export type CreateBlogMutation = {
-  createBlog:  {
-    __typename: "Blog",
+export type CreatePathMutation = {
+  createPath:  {
+    __typename: "Path",
     id: string,
-    name: string,
-    posts:  {
-      __typename: "ModelPostConnection",
+    name: string | null,
+    description: string | null,
+    createdAt: string,
+    updatedAt: string,
+    GoalTemplates:  {
+      __typename: "ModelGoalTemplateConnection",
       items:  Array< {
-        __typename: "Post",
+        __typename: "GoalTemplate",
         id: string,
-        title: string,
-        blogID: string,
+        name: string | null,
+        description: string | null,
+        pathID: string,
         createdAt: string,
         updatedAt: string,
       } | null > | null,
       nextToken: string | null,
     } | null,
-    createdAt: string,
-    updatedAt: string,
   } | null,
 };
 
-export type UpdateBlogMutationVariables = {
-  input: UpdateBlogInput,
-  condition?: ModelBlogConditionInput | null,
+export type UpdatePathMutationVariables = {
+  input: UpdatePathInput,
+  condition?: ModelPathConditionInput | null,
 };
 
-export type UpdateBlogMutation = {
-  updateBlog:  {
-    __typename: "Blog",
+export type UpdatePathMutation = {
+  updatePath:  {
+    __typename: "Path",
     id: string,
-    name: string,
-    posts:  {
-      __typename: "ModelPostConnection",
+    name: string | null,
+    description: string | null,
+    createdAt: string,
+    updatedAt: string,
+    GoalTemplates:  {
+      __typename: "ModelGoalTemplateConnection",
       items:  Array< {
-        __typename: "Post",
+        __typename: "GoalTemplate",
         id: string,
-        title: string,
-        blogID: string,
+        name: string | null,
+        description: string | null,
+        pathID: string,
         createdAt: string,
         updatedAt: string,
       } | null > | null,
       nextToken: string | null,
     } | null,
-    createdAt: string,
-    updatedAt: string,
   } | null,
 };
 
-export type DeleteBlogMutationVariables = {
-  input: DeleteBlogInput,
-  condition?: ModelBlogConditionInput | null,
+export type DeletePathMutationVariables = {
+  input: DeletePathInput,
+  condition?: ModelPathConditionInput | null,
 };
 
-export type DeleteBlogMutation = {
-  deleteBlog:  {
-    __typename: "Blog",
+export type DeletePathMutation = {
+  deletePath:  {
+    __typename: "Path",
     id: string,
-    name: string,
-    posts:  {
-      __typename: "ModelPostConnection",
+    name: string | null,
+    description: string | null,
+    createdAt: string,
+    updatedAt: string,
+    GoalTemplates:  {
+      __typename: "ModelGoalTemplateConnection",
       items:  Array< {
-        __typename: "Post",
+        __typename: "GoalTemplate",
         id: string,
-        title: string,
-        blogID: string,
+        name: string | null,
+        description: string | null,
+        pathID: string,
         createdAt: string,
         updatedAt: string,
       } | null > | null,
       nextToken: string | null,
     } | null,
-    createdAt: string,
-    updatedAt: string,
   } | null,
 };
 
-export type CreatePostMutationVariables = {
-  input: CreatePostInput,
-  condition?: ModelPostConditionInput | null,
+export type CreateGoalTemplateMutationVariables = {
+  input: CreateGoalTemplateInput,
+  condition?: ModelGoalTemplateConditionInput | null,
 };
 
-export type CreatePostMutation = {
-  createPost:  {
-    __typename: "Post",
+export type CreateGoalTemplateMutation = {
+  createGoalTemplate:  {
+    __typename: "GoalTemplate",
     id: string,
-    title: string,
-    blogID: string,
-    blog:  {
-      __typename: "Blog",
-      id: string,
-      name: string,
-      posts:  {
-        __typename: "ModelPostConnection",
-        nextToken: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-    } | null,
-    comments:  {
-      __typename: "ModelCommentConnection",
+    name: string | null,
+    description: string | null,
+    pathID: string,
+    createdAt: string,
+    updatedAt: string,
+    Goals:  {
+      __typename: "ModelGoalConnection",
       items:  Array< {
-        __typename: "Comment",
+        __typename: "Goal",
         id: string,
-        postID: string,
-        content: string,
+        name: string | null,
+        description: string | null,
+        goaltemplateID: string,
         createdAt: string,
         updatedAt: string,
       } | null > | null,
       nextToken: string | null,
     } | null,
-    createdAt: string,
-    updatedAt: string,
   } | null,
 };
 
-export type UpdatePostMutationVariables = {
-  input: UpdatePostInput,
-  condition?: ModelPostConditionInput | null,
+export type UpdateGoalTemplateMutationVariables = {
+  input: UpdateGoalTemplateInput,
+  condition?: ModelGoalTemplateConditionInput | null,
 };
 
-export type UpdatePostMutation = {
-  updatePost:  {
-    __typename: "Post",
+export type UpdateGoalTemplateMutation = {
+  updateGoalTemplate:  {
+    __typename: "GoalTemplate",
     id: string,
-    title: string,
-    blogID: string,
-    blog:  {
-      __typename: "Blog",
-      id: string,
-      name: string,
-      posts:  {
-        __typename: "ModelPostConnection",
-        nextToken: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-    } | null,
-    comments:  {
-      __typename: "ModelCommentConnection",
+    name: string | null,
+    description: string | null,
+    pathID: string,
+    createdAt: string,
+    updatedAt: string,
+    Goals:  {
+      __typename: "ModelGoalConnection",
       items:  Array< {
-        __typename: "Comment",
+        __typename: "Goal",
         id: string,
-        postID: string,
-        content: string,
+        name: string | null,
+        description: string | null,
+        goaltemplateID: string,
         createdAt: string,
         updatedAt: string,
       } | null > | null,
       nextToken: string | null,
     } | null,
-    createdAt: string,
-    updatedAt: string,
   } | null,
 };
 
-export type DeletePostMutationVariables = {
-  input: DeletePostInput,
-  condition?: ModelPostConditionInput | null,
+export type DeleteGoalTemplateMutationVariables = {
+  input: DeleteGoalTemplateInput,
+  condition?: ModelGoalTemplateConditionInput | null,
 };
 
-export type DeletePostMutation = {
-  deletePost:  {
-    __typename: "Post",
+export type DeleteGoalTemplateMutation = {
+  deleteGoalTemplate:  {
+    __typename: "GoalTemplate",
     id: string,
-    title: string,
-    blogID: string,
-    blog:  {
-      __typename: "Blog",
-      id: string,
-      name: string,
-      posts:  {
-        __typename: "ModelPostConnection",
-        nextToken: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-    } | null,
-    comments:  {
-      __typename: "ModelCommentConnection",
+    name: string | null,
+    description: string | null,
+    pathID: string,
+    createdAt: string,
+    updatedAt: string,
+    Goals:  {
+      __typename: "ModelGoalConnection",
       items:  Array< {
-        __typename: "Comment",
+        __typename: "Goal",
         id: string,
-        postID: string,
-        content: string,
+        name: string | null,
+        description: string | null,
+        goaltemplateID: string,
         createdAt: string,
         updatedAt: string,
       } | null > | null,
       nextToken: string | null,
     } | null,
-    createdAt: string,
-    updatedAt: string,
   } | null,
 };
 
-export type CreateCommentMutationVariables = {
-  input: CreateCommentInput,
-  condition?: ModelCommentConditionInput | null,
+export type CreateGoalMutationVariables = {
+  input: CreateGoalInput,
+  condition?: ModelGoalConditionInput | null,
 };
 
-export type CreateCommentMutation = {
-  createComment:  {
-    __typename: "Comment",
+export type CreateGoalMutation = {
+  createGoal:  {
+    __typename: "Goal",
     id: string,
-    postID: string,
-    post:  {
-      __typename: "Post",
-      id: string,
-      title: string,
-      blogID: string,
-      blog:  {
-        __typename: "Blog",
-        id: string,
-        name: string,
-        createdAt: string,
-        updatedAt: string,
-      } | null,
-      comments:  {
-        __typename: "ModelCommentConnection",
-        nextToken: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-    } | null,
-    content: string,
+    name: string | null,
+    description: string | null,
+    goaltemplateID: string,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type UpdateCommentMutationVariables = {
-  input: UpdateCommentInput,
-  condition?: ModelCommentConditionInput | null,
+export type UpdateGoalMutationVariables = {
+  input: UpdateGoalInput,
+  condition?: ModelGoalConditionInput | null,
 };
 
-export type UpdateCommentMutation = {
-  updateComment:  {
-    __typename: "Comment",
+export type UpdateGoalMutation = {
+  updateGoal:  {
+    __typename: "Goal",
     id: string,
-    postID: string,
-    post:  {
-      __typename: "Post",
-      id: string,
-      title: string,
-      blogID: string,
-      blog:  {
-        __typename: "Blog",
-        id: string,
-        name: string,
-        createdAt: string,
-        updatedAt: string,
-      } | null,
-      comments:  {
-        __typename: "ModelCommentConnection",
-        nextToken: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-    } | null,
-    content: string,
+    name: string | null,
+    description: string | null,
+    goaltemplateID: string,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type DeleteCommentMutationVariables = {
-  input: DeleteCommentInput,
-  condition?: ModelCommentConditionInput | null,
+export type DeleteGoalMutationVariables = {
+  input: DeleteGoalInput,
+  condition?: ModelGoalConditionInput | null,
 };
 
-export type DeleteCommentMutation = {
-  deleteComment:  {
-    __typename: "Comment",
+export type DeleteGoalMutation = {
+  deleteGoal:  {
+    __typename: "Goal",
     id: string,
-    postID: string,
-    post:  {
-      __typename: "Post",
-      id: string,
-      title: string,
-      blogID: string,
-      blog:  {
-        __typename: "Blog",
-        id: string,
-        name: string,
-        createdAt: string,
-        updatedAt: string,
-      } | null,
-      comments:  {
-        __typename: "ModelCommentConnection",
-        nextToken: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-    } | null,
-    content: string,
+    name: string | null,
+    description: string | null,
+    goaltemplateID: string,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type GetBlogQueryVariables = {
+export type GetPathQueryVariables = {
   id: string,
 };
 
-export type GetBlogQuery = {
-  getBlog:  {
-    __typename: "Blog",
+export type GetPathQuery = {
+  getPath:  {
+    __typename: "Path",
     id: string,
-    name: string,
-    posts:  {
-      __typename: "ModelPostConnection",
+    name: string | null,
+    description: string | null,
+    createdAt: string,
+    updatedAt: string,
+    GoalTemplates:  {
+      __typename: "ModelGoalTemplateConnection",
       items:  Array< {
-        __typename: "Post",
+        __typename: "GoalTemplate",
         id: string,
-        title: string,
-        blogID: string,
+        name: string | null,
+        description: string | null,
+        pathID: string,
         createdAt: string,
         updatedAt: string,
       } | null > | null,
       nextToken: string | null,
     } | null,
-    createdAt: string,
-    updatedAt: string,
   } | null,
 };
 
-export type ListBlogsQueryVariables = {
-  filter?: ModelBlogFilterInput | null,
+export type ListPathsQueryVariables = {
+  filter?: ModelPathFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
 };
 
-export type ListBlogsQuery = {
-  listBlogs:  {
-    __typename: "ModelBlogConnection",
+export type ListPathsQuery = {
+  listPaths:  {
+    __typename: "ModelPathConnection",
     items:  Array< {
-      __typename: "Blog",
+      __typename: "Path",
       id: string,
-      name: string,
-      posts:  {
-        __typename: "ModelPostConnection",
+      name: string | null,
+      description: string | null,
+      createdAt: string,
+      updatedAt: string,
+      GoalTemplates:  {
+        __typename: "ModelGoalTemplateConnection",
         nextToken: string | null,
       } | null,
+    } | null > | null,
+    nextToken: string | null,
+  } | null,
+};
+
+export type GetGoalTemplateQueryVariables = {
+  id: string,
+};
+
+export type GetGoalTemplateQuery = {
+  getGoalTemplate:  {
+    __typename: "GoalTemplate",
+    id: string,
+    name: string | null,
+    description: string | null,
+    pathID: string,
+    createdAt: string,
+    updatedAt: string,
+    Goals:  {
+      __typename: "ModelGoalConnection",
+      items:  Array< {
+        __typename: "Goal",
+        id: string,
+        name: string | null,
+        description: string | null,
+        goaltemplateID: string,
+        createdAt: string,
+        updatedAt: string,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+  } | null,
+};
+
+export type ListGoalTemplatesQueryVariables = {
+  filter?: ModelGoalTemplateFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListGoalTemplatesQuery = {
+  listGoalTemplates:  {
+    __typename: "ModelGoalTemplateConnection",
+    items:  Array< {
+      __typename: "GoalTemplate",
+      id: string,
+      name: string | null,
+      description: string | null,
+      pathID: string,
+      createdAt: string,
+      updatedAt: string,
+      Goals:  {
+        __typename: "ModelGoalConnection",
+        nextToken: string | null,
+      } | null,
+    } | null > | null,
+    nextToken: string | null,
+  } | null,
+};
+
+export type GetGoalQueryVariables = {
+  id: string,
+};
+
+export type GetGoalQuery = {
+  getGoal:  {
+    __typename: "Goal",
+    id: string,
+    name: string | null,
+    description: string | null,
+    goaltemplateID: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type ListGoalsQueryVariables = {
+  filter?: ModelGoalFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListGoalsQuery = {
+  listGoals:  {
+    __typename: "ModelGoalConnection",
+    items:  Array< {
+      __typename: "Goal",
+      id: string,
+      name: string | null,
+      description: string | null,
+      goaltemplateID: string,
       createdAt: string,
       updatedAt: string,
     } | null > | null,
@@ -506,392 +539,184 @@ export type ListBlogsQuery = {
   } | null,
 };
 
-export type GetPostQueryVariables = {
-  id: string,
-};
-
-export type GetPostQuery = {
-  getPost:  {
-    __typename: "Post",
+export type OnCreatePathSubscription = {
+  onCreatePath:  {
+    __typename: "Path",
     id: string,
-    title: string,
-    blogID: string,
-    blog:  {
-      __typename: "Blog",
-      id: string,
-      name: string,
-      posts:  {
-        __typename: "ModelPostConnection",
-        nextToken: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-    } | null,
-    comments:  {
-      __typename: "ModelCommentConnection",
+    name: string | null,
+    description: string | null,
+    createdAt: string,
+    updatedAt: string,
+    GoalTemplates:  {
+      __typename: "ModelGoalTemplateConnection",
       items:  Array< {
-        __typename: "Comment",
+        __typename: "GoalTemplate",
         id: string,
-        postID: string,
-        content: string,
+        name: string | null,
+        description: string | null,
+        pathID: string,
         createdAt: string,
         updatedAt: string,
       } | null > | null,
       nextToken: string | null,
     } | null,
+  } | null,
+};
+
+export type OnUpdatePathSubscription = {
+  onUpdatePath:  {
+    __typename: "Path",
+    id: string,
+    name: string | null,
+    description: string | null,
     createdAt: string,
     updatedAt: string,
-  } | null,
-};
-
-export type ListPostsQueryVariables = {
-  filter?: ModelPostFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type ListPostsQuery = {
-  listPosts:  {
-    __typename: "ModelPostConnection",
-    items:  Array< {
-      __typename: "Post",
-      id: string,
-      title: string,
-      blogID: string,
-      blog:  {
-        __typename: "Blog",
-        id: string,
-        name: string,
-        createdAt: string,
-        updatedAt: string,
-      } | null,
-      comments:  {
-        __typename: "ModelCommentConnection",
-        nextToken: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-    } | null > | null,
-    nextToken: string | null,
-  } | null,
-};
-
-export type GetCommentQueryVariables = {
-  id: string,
-};
-
-export type GetCommentQuery = {
-  getComment:  {
-    __typename: "Comment",
-    id: string,
-    postID: string,
-    post:  {
-      __typename: "Post",
-      id: string,
-      title: string,
-      blogID: string,
-      blog:  {
-        __typename: "Blog",
-        id: string,
-        name: string,
-        createdAt: string,
-        updatedAt: string,
-      } | null,
-      comments:  {
-        __typename: "ModelCommentConnection",
-        nextToken: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-    } | null,
-    content: string,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type ListCommentsQueryVariables = {
-  filter?: ModelCommentFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type ListCommentsQuery = {
-  listComments:  {
-    __typename: "ModelCommentConnection",
-    items:  Array< {
-      __typename: "Comment",
-      id: string,
-      postID: string,
-      post:  {
-        __typename: "Post",
-        id: string,
-        title: string,
-        blogID: string,
-        createdAt: string,
-        updatedAt: string,
-      } | null,
-      content: string,
-      createdAt: string,
-      updatedAt: string,
-    } | null > | null,
-    nextToken: string | null,
-  } | null,
-};
-
-export type OnCreateBlogSubscription = {
-  onCreateBlog:  {
-    __typename: "Blog",
-    id: string,
-    name: string,
-    posts:  {
-      __typename: "ModelPostConnection",
+    GoalTemplates:  {
+      __typename: "ModelGoalTemplateConnection",
       items:  Array< {
-        __typename: "Post",
+        __typename: "GoalTemplate",
         id: string,
-        title: string,
-        blogID: string,
+        name: string | null,
+        description: string | null,
+        pathID: string,
         createdAt: string,
         updatedAt: string,
       } | null > | null,
       nextToken: string | null,
     } | null,
-    createdAt: string,
-    updatedAt: string,
   } | null,
 };
 
-export type OnUpdateBlogSubscription = {
-  onUpdateBlog:  {
-    __typename: "Blog",
+export type OnDeletePathSubscription = {
+  onDeletePath:  {
+    __typename: "Path",
     id: string,
-    name: string,
-    posts:  {
-      __typename: "ModelPostConnection",
+    name: string | null,
+    description: string | null,
+    createdAt: string,
+    updatedAt: string,
+    GoalTemplates:  {
+      __typename: "ModelGoalTemplateConnection",
       items:  Array< {
-        __typename: "Post",
+        __typename: "GoalTemplate",
         id: string,
-        title: string,
-        blogID: string,
+        name: string | null,
+        description: string | null,
+        pathID: string,
         createdAt: string,
         updatedAt: string,
       } | null > | null,
       nextToken: string | null,
     } | null,
-    createdAt: string,
-    updatedAt: string,
   } | null,
 };
 
-export type OnDeleteBlogSubscription = {
-  onDeleteBlog:  {
-    __typename: "Blog",
+export type OnCreateGoalTemplateSubscription = {
+  onCreateGoalTemplate:  {
+    __typename: "GoalTemplate",
     id: string,
-    name: string,
-    posts:  {
-      __typename: "ModelPostConnection",
+    name: string | null,
+    description: string | null,
+    pathID: string,
+    createdAt: string,
+    updatedAt: string,
+    Goals:  {
+      __typename: "ModelGoalConnection",
       items:  Array< {
-        __typename: "Post",
+        __typename: "Goal",
         id: string,
-        title: string,
-        blogID: string,
+        name: string | null,
+        description: string | null,
+        goaltemplateID: string,
         createdAt: string,
         updatedAt: string,
       } | null > | null,
       nextToken: string | null,
     } | null,
-    createdAt: string,
-    updatedAt: string,
   } | null,
 };
 
-export type OnCreatePostSubscription = {
-  onCreatePost:  {
-    __typename: "Post",
+export type OnUpdateGoalTemplateSubscription = {
+  onUpdateGoalTemplate:  {
+    __typename: "GoalTemplate",
     id: string,
-    title: string,
-    blogID: string,
-    blog:  {
-      __typename: "Blog",
-      id: string,
-      name: string,
-      posts:  {
-        __typename: "ModelPostConnection",
-        nextToken: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-    } | null,
-    comments:  {
-      __typename: "ModelCommentConnection",
+    name: string | null,
+    description: string | null,
+    pathID: string,
+    createdAt: string,
+    updatedAt: string,
+    Goals:  {
+      __typename: "ModelGoalConnection",
       items:  Array< {
-        __typename: "Comment",
+        __typename: "Goal",
         id: string,
-        postID: string,
-        content: string,
+        name: string | null,
+        description: string | null,
+        goaltemplateID: string,
         createdAt: string,
         updatedAt: string,
       } | null > | null,
       nextToken: string | null,
     } | null,
-    createdAt: string,
-    updatedAt: string,
   } | null,
 };
 
-export type OnUpdatePostSubscription = {
-  onUpdatePost:  {
-    __typename: "Post",
+export type OnDeleteGoalTemplateSubscription = {
+  onDeleteGoalTemplate:  {
+    __typename: "GoalTemplate",
     id: string,
-    title: string,
-    blogID: string,
-    blog:  {
-      __typename: "Blog",
-      id: string,
-      name: string,
-      posts:  {
-        __typename: "ModelPostConnection",
-        nextToken: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-    } | null,
-    comments:  {
-      __typename: "ModelCommentConnection",
+    name: string | null,
+    description: string | null,
+    pathID: string,
+    createdAt: string,
+    updatedAt: string,
+    Goals:  {
+      __typename: "ModelGoalConnection",
       items:  Array< {
-        __typename: "Comment",
+        __typename: "Goal",
         id: string,
-        postID: string,
-        content: string,
+        name: string | null,
+        description: string | null,
+        goaltemplateID: string,
         createdAt: string,
         updatedAt: string,
       } | null > | null,
       nextToken: string | null,
     } | null,
+  } | null,
+};
+
+export type OnCreateGoalSubscription = {
+  onCreateGoal:  {
+    __typename: "Goal",
+    id: string,
+    name: string | null,
+    description: string | null,
+    goaltemplateID: string,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type OnDeletePostSubscription = {
-  onDeletePost:  {
-    __typename: "Post",
+export type OnUpdateGoalSubscription = {
+  onUpdateGoal:  {
+    __typename: "Goal",
     id: string,
-    title: string,
-    blogID: string,
-    blog:  {
-      __typename: "Blog",
-      id: string,
-      name: string,
-      posts:  {
-        __typename: "ModelPostConnection",
-        nextToken: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-    } | null,
-    comments:  {
-      __typename: "ModelCommentConnection",
-      items:  Array< {
-        __typename: "Comment",
-        id: string,
-        postID: string,
-        content: string,
-        createdAt: string,
-        updatedAt: string,
-      } | null > | null,
-      nextToken: string | null,
-    } | null,
+    name: string | null,
+    description: string | null,
+    goaltemplateID: string,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type OnCreateCommentSubscription = {
-  onCreateComment:  {
-    __typename: "Comment",
+export type OnDeleteGoalSubscription = {
+  onDeleteGoal:  {
+    __typename: "Goal",
     id: string,
-    postID: string,
-    post:  {
-      __typename: "Post",
-      id: string,
-      title: string,
-      blogID: string,
-      blog:  {
-        __typename: "Blog",
-        id: string,
-        name: string,
-        createdAt: string,
-        updatedAt: string,
-      } | null,
-      comments:  {
-        __typename: "ModelCommentConnection",
-        nextToken: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-    } | null,
-    content: string,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type OnUpdateCommentSubscription = {
-  onUpdateComment:  {
-    __typename: "Comment",
-    id: string,
-    postID: string,
-    post:  {
-      __typename: "Post",
-      id: string,
-      title: string,
-      blogID: string,
-      blog:  {
-        __typename: "Blog",
-        id: string,
-        name: string,
-        createdAt: string,
-        updatedAt: string,
-      } | null,
-      comments:  {
-        __typename: "ModelCommentConnection",
-        nextToken: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-    } | null,
-    content: string,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type OnDeleteCommentSubscription = {
-  onDeleteComment:  {
-    __typename: "Comment",
-    id: string,
-    postID: string,
-    post:  {
-      __typename: "Post",
-      id: string,
-      title: string,
-      blogID: string,
-      blog:  {
-        __typename: "Blog",
-        id: string,
-        name: string,
-        createdAt: string,
-        updatedAt: string,
-      } | null,
-      comments:  {
-        __typename: "ModelCommentConnection",
-        nextToken: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-    } | null,
-    content: string,
+    name: string | null,
+    description: string | null,
+    goaltemplateID: string,
     createdAt: string,
     updatedAt: string,
   } | null,

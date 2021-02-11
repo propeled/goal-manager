@@ -1,20 +1,22 @@
-type Blog @model {
+type Path @model @auth(rules: [{allow: public}]) {
   id: ID!
-  name: String!
-  posts: [Post] @connection(keyName: "byBlog", fields: ["id"])
+  name: String
+  description: String
+  GoalTemplates: [GoalTemplate] @connection(keyName: "byPath", fields: ["id"])
 }
 
-type Post @model @key(name: "byBlog", fields: ["blogID"]) {
+type GoalTemplate @model @auth(rules: [{allow: public}]) @key(name: "byPath", fields: ["pathID"]) {
   id: ID!
-  title: String!
-  blogID: ID!
-  blog: Blog @connection(fields: ["blogID"])
-  comments: [Comment] @connection(keyName: "byPost", fields: ["id"])
+  name: String
+  description: String
+  Goals: [Goal] @connection(keyName: "byGoalTemplate", fields: ["id"])
+  pathID: ID!
 }
 
-type Comment @model @key(name: "byPost", fields: ["postID", "content"]) {
+type Goal @model @auth(rules: [{allow: public}]) @key(name: "byGoalTemplate", fields: ["goaltemplateID"]) {
   id: ID!
-  postID: ID!
-  post: Post @connection(fields: ["postID"])
-  content: String!
+  name: String
+  description: String
+  goaltemplateID: ID!
 }
+ 

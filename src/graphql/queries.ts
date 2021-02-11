@@ -2,148 +2,118 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getBlog = /* GraphQL */ `
-  query GetBlog($id: ID!) {
-    getBlog(id: $id) {
+export const getPath = /* GraphQL */ `
+  query GetPath($id: ID!) {
+    getPath(id: $id) {
       id
       name
-      posts {
+      description
+      createdAt
+      updatedAt
+      GoalTemplates {
         items {
           id
-          title
-          blogID
+          name
+          description
+          pathID
           createdAt
           updatedAt
         }
         nextToken
       }
-      createdAt
-      updatedAt
     }
   }
 `;
-export const listBlogs = /* GraphQL */ `
-  query ListBlogs(
-    $filter: ModelBlogFilterInput
+export const listPaths = /* GraphQL */ `
+  query ListPaths(
+    $filter: ModelPathFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listBlogs(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listPaths(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
         name
-        posts {
-          nextToken
-        }
+        description
         createdAt
         updatedAt
+        GoalTemplates {
+          nextToken
+        }
       }
       nextToken
     }
   }
 `;
-export const getPost = /* GraphQL */ `
-  query GetPost($id: ID!) {
-    getPost(id: $id) {
+export const getGoalTemplate = /* GraphQL */ `
+  query GetGoalTemplate($id: ID!) {
+    getGoalTemplate(id: $id) {
       id
-      title
-      blogID
-      blog {
-        id
-        name
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      comments {
+      name
+      description
+      pathID
+      createdAt
+      updatedAt
+      Goals {
         items {
           id
-          postID
-          content
+          name
+          description
+          goaltemplateID
           createdAt
           updatedAt
         }
         nextToken
       }
-      createdAt
-      updatedAt
     }
   }
 `;
-export const listPosts = /* GraphQL */ `
-  query ListPosts(
-    $filter: ModelPostFilterInput
+export const listGoalTemplates = /* GraphQL */ `
+  query ListGoalTemplates(
+    $filter: ModelGoalTemplateFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listGoalTemplates(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        title
-        blogID
-        blog {
-          id
-          name
-          createdAt
-          updatedAt
-        }
-        comments {
-          nextToken
-        }
+        name
+        description
+        pathID
         createdAt
         updatedAt
+        Goals {
+          nextToken
+        }
       }
       nextToken
     }
   }
 `;
-export const getComment = /* GraphQL */ `
-  query GetComment($id: ID!) {
-    getComment(id: $id) {
+export const getGoal = /* GraphQL */ `
+  query GetGoal($id: ID!) {
+    getGoal(id: $id) {
       id
-      postID
-      post {
-        id
-        title
-        blogID
-        blog {
-          id
-          name
-          createdAt
-          updatedAt
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      content
+      name
+      description
+      goaltemplateID
       createdAt
       updatedAt
     }
   }
 `;
-export const listComments = /* GraphQL */ `
-  query ListComments(
-    $filter: ModelCommentFilterInput
+export const listGoals = /* GraphQL */ `
+  query ListGoals(
+    $filter: ModelGoalFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listComments(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listGoals(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        postID
-        post {
-          id
-          title
-          blogID
-          createdAt
-          updatedAt
-        }
-        content
+        name
+        description
+        goaltemplateID
         createdAt
         updatedAt
       }
