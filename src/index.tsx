@@ -1,3 +1,5 @@
+import 'bootstrap/dist/css/bootstrap.css';
+
 import { Router } from 'react-router';
 
 import React from 'react';
@@ -13,7 +15,7 @@ ReactDOM.render(
   <React.StrictMode>
       <Router history={customHistory}>
         <Routes/>
-      </Router>,
+      </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
