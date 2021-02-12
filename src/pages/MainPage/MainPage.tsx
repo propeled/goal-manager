@@ -6,9 +6,9 @@ import { useEffect, useState } from "react";
 import { GraphQLResult, GRAPHQL_AUTH_MODE} from "@aws-amplify/api";
 import { Path } from "../../models";
 import { CreatePathMutation, CreatePathMutationVariables, ListPathsQuery } from "../../API";
-import Amplify from 'aws-amplify';
-import awsconfig from '../../aws-exports';
-Amplify.configure(awsconfig);
+// import Amplify from 'aws-amplify';
+// import awsconfig from '../../aws-exports';
+// Amplify.configure(awsconfig);
 
 
 export default function MainPage() {
